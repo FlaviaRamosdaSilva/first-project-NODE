@@ -1,5 +1,6 @@
 {
   "name": "first-project",
+  "type": "module",
   "version": "1.0.0",
   "description": "Meu primeiro projeto NODE",
   "main": "index.js",
