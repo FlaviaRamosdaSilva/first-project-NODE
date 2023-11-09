@@ -1,15 +1,14 @@
 
 
 // Com Middleware:
-
-const express = require('express');
-const uuid = require('uuid');
-const cors = require('cors');
+import express, { json } from 'express';
+import { v4 } from 'uuid';
+import cors from 'cors';
 
 
 const port = 3001;
 const app = express();
-app.use(express.json());
+app.use(json());
 app.use(cors());
 
 const users = []
@@ -33,7 +32,7 @@ app.get('/users', (request, response) => {
 
 app.post('/users', (request, response) => {
     const { name, age} = request.body // pega o que eu coloquei no Body
-    const user = { id:uuid.v4(), name, age } // cria um ID para os dados do body e armazena os 3 no USER
+    const user = { id:v4(), name, age } // cria um ID para os dados do body e armazena os 3 no USER
     users.push(user) // pega a variável USERS que tava com o array vazio e adiciona (push) o que eu criei na linha de cima
 
     return response.status(201).json(user) // retorna o usuário que criamos apenas e coloca o status lá de cima com 201
